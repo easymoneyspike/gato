@@ -1,0 +1,86 @@
+* {
+    font-family: 'Unbounded';
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    border: 2px solid #27272A;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 350px;
+    max-width: 350px;
+    padding: 14px;
+}
+
+.subtitle {
+    color: #A1A1AA;
+    margin-bottom: 12px;
+}
+
+.form>h1 {
+    color: #FAFAFA;
+    margin: 4px 4px;
+}
+
+.suporte {
+    margin: 8px auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.suporte .barra {
+    width: 2px;
+    background-color: #A1A1AA;
+    border-radius: 12px;
+}
+
+.suporte span a {
+    font-size: 14px;
+    color: #FAFAFA;
+
+    transition: 200ms ease-in-out;
+}
+
+.suporte span a:hover {
+    color: #A1A1AA;
+}
+
+.error-message {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #A1A1AA;
+    height: 0;
+    opacity: 0;
+    transition: height 200ms ease, opacity 200ms ease;
+}
+
+.error-message.show {
+    height: auto;
+    opacity: 1;
+}
+
+.error-login{
+    color: #FAFAFA;
+    text-decoration: underline;
+    transition: 120ms ease-in;
+}
+
+.error-login:hover{
+    color: #A1A1AA;
+}

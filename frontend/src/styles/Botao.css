@@ -1,0 +1,33 @@
+.button-field{
+    margin: 8px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+
+    border: none;
+    width: 80%;
+    padding: 8px;
+    background-color: #FAFAFA;
+    color: #27272A;
+    font-weight: 600;
+    border-radius: 8px ;
+    border: 2px solid transparent;
+
+    transition: 120ms ease-in-out;
+
+}
+
+button:hover{
+    color: #FAFAFA;
+    border: 2px solid #27272A;
+    background-color: #09090B;
+}
+
+button:active{
+    border: 2px solid transparent;
+    color: #27272A;
+    background-color: #FAFAFA;
+}

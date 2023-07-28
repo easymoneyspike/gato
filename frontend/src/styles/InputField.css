@@ -1,0 +1,21 @@
+.label {
+    font-weight: 600;
+}
+
+.input {
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #27272A;
+    font-weight: 800;
+    font-size: 12px;
+    color: #FAFAFA;
+}
+
+.label {
+    color: #FAFAFA;
+}
+
+.input::placeholder {
+    color: #A1A1AA;
+}
