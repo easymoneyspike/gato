@@ -34,19 +34,19 @@ export const addUsers = async (req, res) => {
         const usuarioExistente = await usuarios.findOne({ email });
 
         if (usuarioExistente) {
-            // se o email já existir, retorna a mensagem de que já existe
-            res.status(409).json({ message: 'o email já está cadastrado :( ' });
+            // se o email já existir, retorna uma mensagem de erro
+            return res.status(409).json({ message: 'o email já está cadastrado :( ' });
         } else {
             // se o email não existir, cria um novo usuário
             const novoUsuario = new usuarios({ nome, email, senha, age });
             await novoUsuario.save();
-            res.status(200).json('usuário criado, bem vindo :)');
+            return res.status(200).json({ message: 'usuário criado, bem-vindo :)' });
         }
     } catch (err) {
-        // em caso de erro, retorna uma resposta de erro
-        res.status(500).json({ message: 'não foi possível criar uma conta.' });
+        return res.status(500).json({ message: 'Erro ao salvar o usuário no banco de dados.' + err });
     }
 };
+
 
 export const deleteUser = async (req, res) => {
     const { id } = req.params;
@@ -74,6 +74,35 @@ export const updateUser = async (req, res) => {
         res.status(500).json('não foi possível atualizar o usuário :( - ' + err)
     }
 
+}
+
+export const loginUser = async (req, res) => {
+
+    const { email, senha } = req.body;
+
+    console.log(email, senha);
+
+    try{
+        const dados = await usuarios.findOne({ email: email })
+
+        if(!dados){
+            res.status(404).json({ message: 'conta não encontrada!' })
+            return;
+        }else if(senha == "" || dados.senha != senha){
+            res.status(400).json({ message: 'a senha está errada!' })
+            return;
+        }
+
+        if(dados.email == email && dados.senha == senha){
+            res.status(200).json(dados)
+            return;
+        }else{
+            res.status(401).json({ message: 'email ou senha estão errado!' })
+            return;
+        }             
+    }catch(err){
+        res.status(500).json({ message: 'não foi possível logar na conta.' + err })
+    }
 }
 
 

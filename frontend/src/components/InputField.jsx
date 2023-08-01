@@ -12,7 +12,7 @@ const InputField = (props) => {
     name={props.name}
     placeholder={props.placeholder}
     onChange={props.onChange}
-    required={true}
+    required={props.required}
     />
     </>
     

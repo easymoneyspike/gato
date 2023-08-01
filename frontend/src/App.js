@@ -1,10 +1,18 @@
-import Formulario from "./components/Formulario.jsx";
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+
+import Home from './components/Home.jsx';
+import Login from "./components/Login.jsx";
+import Registro from './components/Registro.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <Formulario/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/registro' element={<Registro/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
